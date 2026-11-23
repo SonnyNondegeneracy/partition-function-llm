@@ -1,0 +1,12 @@
+{
+  "openrlhf": "0.10.4",
+  "sha256": {
+    "trainer/ray/vllm_engine.py": "f7c5827999429562ce8e2da1b0ac6c0a6573bd6d068c6a004d03e7a68c71d50b",
+    "trainer/ray/ppo_actor.py": "4ec2740eacc6af2b1395c8d227df73e9316b54f14e28ca814f57cda348559d35",
+    "m2_weight_sync.py": "92ca9ddf54ab7199c4b2d33cd3d3bb516608f81fdcb71df255ecce83b14aed2a",
+    "m2_round_adapter.py": "a884614dcd3cb0dfceb6bb1aced8fc00a241c32b2e10ae8e0253cee68d7f0abd",
+    "trainer/ray/launcher.py": "d3f621c8ed6e35a9fbc22b5e99d99859e665e5a2efa0c6fcbb3a2b32faa04647",
+    "cli/train_ppo_ray.py": "5966b317691f703732dc0374206c0dec6867afd4c764f99810297799f452219a",
+    "trainer/ppo_utils/experience_maker.py": "140fff0e27be159c54e7ddf717dc770d2eef5e677e751e3ab0f9d814d494b647"
+  }
+}

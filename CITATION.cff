@@ -1,0 +1,26 @@
+cff-version: 1.2.0
+message: "If you use this code, please cite the accompanying paper."
+type: software
+title: "Potential emergence in LLM agents: a statistical physics perspective: research code"
+authors:
+  - family-names: Song
+    given-names: Zhuo-Yang
+  - family-names: Zhu
+    given-names: Hua Xing
+license: MIT
+abstract: "Code for training, measurement, statistical analysis, and figures for controlled T1 and T2 LLM-agent experiments."
+repository-code: https://github.com/SonnyNondegeneracy/partition-function-llm
+preferred-citation:
+  type: article
+  title: "Potential emergence in LLM agents: a statistical physics perspective"
+  authors:
+    - family-names: Song
+      given-names: Zhuo-Yang
+    - family-names: Zhu
+      given-names: Hua Xing
+  year: 2026
+  doi: 10.48550/arXiv.2611.27618
+  url: "https://arxiv.org/abs/2611.27618"
+  identifiers:
+    - type: other
+      value: "arXiv:2611.27618"

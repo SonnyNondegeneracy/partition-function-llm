@@ -1,0 +1,73 @@
+{
+ "c": {
+  "T1": 3.035736701715505,
+  "T2": 3.4509642457310705
+ },
+ "method": "one c per task, fitted jointly on the main experiment and two further training seeds",
+ "figure1_fits": {
+  "T1_t5": {
+   "Rinf": 1.0,
+   "delta": 0.25,
+   "Hstar": 0.0,
+   "beta_scale": 3.035736701715505,
+   "A": 0.9606044469890621,
+   "loss": 0.4654775695366223
+  },
+  "T1_mean": {
+   "Hstar": 0.8520099753242634,
+   "Rinf": 0.7885628561642097,
+   "A": 0.5694681076628101,
+   "delta": 0.4786300923226419,
+   "beta_scale": 3.035736701715505,
+   "loss": 0.013490750186525555,
+   "method": "four_parameter_joint_fit_at_calibrated_beta"
+  },
+  "T2_mean": {
+   "Hstar": 0.6074856358044582,
+   "Rinf": 0.843664686642969,
+   "A": 0.4211516918865765,
+   "delta": 0.5495408738576287,
+   "beta_scale": 3.4509642457310705,
+   "loss": 0.012178275909358665,
+   "method": "four_parameter_joint_fit_at_calibrated_beta"
+  }
+ },
+ "figure2_fits": {
+  "T1": {
+   "theta": 65.21189839788249,
+   "beta_i": 0.4710001865307237,
+   "rmse": 0.04781338319243439,
+   "weighted_sse": 0.005361574904738338,
+   "fit_success": true,
+   "model": "order_parameter_fit_with_initial_scale_offset",
+   "kappa": 0.0,
+   "c": 3.035736701715505,
+   "beta_scale": 3.035736701715505,
+   "theta_effective": 65.21189839788249,
+   "beta_i_fit_scale": 0.4710001865307237,
+   "observations": 9,
+   "equation": "r=(1+theta*beta_fit^2)^(-1/2)",
+   "fit_scale_equation": "1/beta_fit=n/(c*beta0)+1/beta_i",
+   "weight_rule": "1/((beta_fit/max(beta_fit))^6+0.30^2), normalised to mean one; updated with beta_i",
+   "interpretation": "Task-specific Figure 2 fit: beta_i is the starting-checkpoint fit scale relative to a hypothetical less task-biased reference kernel; it does not alter the plotted beta_effective coordinate or any other analysis."
+  },
+  "T2": {
+   "theta": 565.126940587751,
+   "beta_i": 0.0465004329301764,
+   "rmse": 0.028105510392750544,
+   "weighted_sse": 0.007571441263601502,
+   "fit_success": true,
+   "model": "order_parameter_fit_with_initial_scale_offset",
+   "kappa": 0.0,
+   "c": 3.4509642457310705,
+   "beta_scale": 3.4509642457310705,
+   "theta_effective": 565.126940587751,
+   "beta_i_fit_scale": 0.0465004329301764,
+   "observations": 9,
+   "equation": "r=(1+theta*beta_fit^2)^(-1/2)",
+   "fit_scale_equation": "1/beta_fit=n/(c*beta0)+1/beta_i",
+   "weight_rule": "1/((beta_fit/max(beta_fit))^6+0.30^2), normalised to mean one; updated with beta_i",
+   "interpretation": "Task-specific Figure 2 fit: beta_i is the starting-checkpoint fit scale relative to a hypothetical less task-biased reference kernel; it does not alter the plotted beta_effective coordinate or any other analysis."
+  }
+ }
+}

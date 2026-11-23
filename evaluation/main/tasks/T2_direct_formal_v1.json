@@ -1,0 +1,345 @@
+{
+  "version": "t2_heat_noself_direct_v1",
+  "task_id": "T2_direct_formal_v1",
+  "protocol": "direct",
+  "world_id": "two_layer_heat_contact",
+  "world": "You are evaluating a synthetic AI-physics reasoning benchmark. A planar two-layer wall has layer 1 thickness L1 and conductivity k1, layer 2 thickness L2 and conductivity k2, and a finite thermal contact resistance Rc at the interface. The outer faces are held at Th and Tc with Th>Tc; there is steady one-dimensional conduction, no internal heat generation, and no convection boundary unless explicitly stated. The generator proposes the next short audit checkpoint; a separate rubric checks physical consistency. Do not carry out an experiment or use real data.",
+  "order_seed": 2718,
+  "states": [
+    {
+      "id": "p0",
+      "description": "state the geometry, sign convention and no-source steady assumptions",
+      "reward": 0.35
+    },
+    {
+      "id": "p1",
+      "description": "draw the series thermal-resistance path including Rc",
+      "reward": 0.65
+    },
+    {
+      "id": "p2",
+      "description": "write the energy balance showing the heat flux is constant",
+      "reward": 0.75
+    },
+    {
+      "id": "p3",
+      "description": "write Fourier's relation across layer 1",
+      "reward": 0.45
+    },
+    {
+      "id": "p4",
+      "description": "write Fourier's relation across layer 2",
+      "reward": 0.45
+    },
+    {
+      "id": "p5",
+      "description": "write the temperature jump relation at the contact resistance",
+      "reward": 0.9
+    },
+    {
+      "id": "p6",
+      "description": "apply the hot-face and cold-face boundary conditions",
+      "reward": 0.7
+    },
+    {
+      "id": "p7",
+      "description": "solve the signed heat flux in terms of both layer resistances and Rc",
+      "reward": 1.0
+    },
+    {
+      "id": "p8",
+      "description": "solve the interface temperature from the same flux",
+      "reward": 0.85
+    },
+    {
+      "id": "p9",
+      "description": "check units and dimensions of the total resistance and heat flux",
+      "reward": 0.95
+    },
+    {
+      "id": "p10",
+      "description": "check the limiting case Rc approaching zero",
+      "reward": 0.9
+    },
+    {
+      "id": "p11",
+      "description": "flag a tempting error: forcing equal interface temperature or adding an unstated convection term",
+      "reward": 0.1
+    }
+  ],
+  "prompts": [
+    {
+      "source": 0,
+      "source_state": "p0",
+      "mapping": {
+        "A": 10,
+        "B": 11,
+        "C": 1,
+        "D": 2
+      },
+      "prompt": "You are evaluating a synthetic AI-physics reasoning benchmark. A planar two-layer wall has layer 1 thickness L1 and conductivity k1, layer 2 thickness L2 and conductivity k2, and a finite thermal contact resistance Rc at the interface. The outer faces are held at Th and Tc with Th>Tc; there is steady one-dimensional conduction, no internal heat generation, and no convection boundary unless explicitly stated. The generator proposes the next short audit checkpoint; a separate rubric checks physical consistency. Do not carry out an experiment or use real data.\n\nCurrent checkpoint: state the geometry, sign convention and no-source steady assumptions\nPossible next checkpoints:\nA: check the limiting case Rc approaching zero\nB: flag a tempting error: forcing equal interface temperature or adding an unstated convection term\nC: draw the series thermal-resistance path including Rc\nD: write the energy balance showing the heat flux is constant\nPropose the next checkpoint that most usefully audits the current step. Do not repeat the current checkpoint. Reply only ANSWER: <ID>.",
+      "messages": [
+        {
+          "role": "system",
+          "content": "You are a physics-audit mutator. Output exactly ANSWER: followed by one uppercase ID A-D. Never explain."
+        },
+        {
+          "role": "user",
+          "content": "You are evaluating a synthetic AI-physics reasoning benchmark. A planar two-layer wall has layer 1 thickness L1 and conductivity k1, layer 2 thickness L2 and conductivity k2, and a finite thermal contact resistance Rc at the interface. The outer faces are held at Th and Tc with Th>Tc; there is steady one-dimensional conduction, no internal heat generation, and no convection boundary unless explicitly stated. The generator proposes the next short audit checkpoint; a separate rubric checks physical consistency. Do not carry out an experiment or use real data.\n\nCurrent checkpoint: state the geometry, sign convention and no-source steady assumptions\nPossible next checkpoints:\nA: check the limiting case Rc approaching zero\nB: flag a tempting error: forcing equal interface temperature or adding an unstated convection term\nC: draw the series thermal-resistance path including Rc\nD: write the energy balance showing the heat flux is constant\nPropose the next checkpoint that most usefully audits the current step. Do not repeat the current checkpoint. Reply only ANSWER: <ID>."
+        }
+      ]
+    },
+    {
+      "source": 1,
+      "source_state": "p1",
+      "mapping": {
+        "A": 3,
+        "B": 11,
+        "C": 0,
+        "D": 2
+      },
+      "prompt": "You are evaluating a synthetic AI-physics reasoning benchmark. A planar two-layer wall has layer 1 thickness L1 and conductivity k1, layer 2 thickness L2 and conductivity k2, and a finite thermal contact resistance Rc at the interface. The outer faces are held at Th and Tc with Th>Tc; there is steady one-dimensional conduction, no internal heat generation, and no convection boundary unless explicitly stated. The generator proposes the next short audit checkpoint; a separate rubric checks physical consistency. Do not carry out an experiment or use real data.\n\nCurrent checkpoint: draw the series thermal-resistance path including Rc\nPossible next checkpoints:\nA: write Fourier's relation across layer 1\nB: flag a tempting error: forcing equal interface temperature or adding an unstated convection term\nC: state the geometry, sign convention and no-source steady assumptions\nD: write the energy balance showing the heat flux is constant\nPropose the next checkpoint that most usefully audits the current step. Do not repeat the current checkpoint. Reply only ANSWER: <ID>.",
+      "messages": [
+        {
+          "role": "system",
+          "content": "You are a physics-audit mutator. Output exactly ANSWER: followed by one uppercase ID A-D. Never explain."
+        },
+        {
+          "role": "user",
+          "content": "You are evaluating a synthetic AI-physics reasoning benchmark. A planar two-layer wall has layer 1 thickness L1 and conductivity k1, layer 2 thickness L2 and conductivity k2, and a finite thermal contact resistance Rc at the interface. The outer faces are held at Th and Tc with Th>Tc; there is steady one-dimensional conduction, no internal heat generation, and no convection boundary unless explicitly stated. The generator proposes the next short audit checkpoint; a separate rubric checks physical consistency. Do not carry out an experiment or use real data.\n\nCurrent checkpoint: draw the series thermal-resistance path including Rc\nPossible next checkpoints:\nA: write Fourier's relation across layer 1\nB: flag a tempting error: forcing equal interface temperature or adding an unstated convection term\nC: state the geometry, sign convention and no-source steady assumptions\nD: write the energy balance showing the heat flux is constant\nPropose the next checkpoint that most usefully audits the current step. Do not repeat the current checkpoint. Reply only ANSWER: <ID>."
+        }
+      ]
+    },
+    {
+      "source": 2,
+      "source_state": "p2",
+      "mapping": {
+        "A": 3,
+        "B": 4,
+        "C": 0,
+        "D": 1
+      },
+      "prompt": "You are evaluating a synthetic AI-physics reasoning benchmark. A planar two-layer wall has layer 1 thickness L1 and conductivity k1, layer 2 thickness L2 and conductivity k2, and a finite thermal contact resistance Rc at the interface. The outer faces are held at Th and Tc with Th>Tc; there is steady one-dimensional conduction, no internal heat generation, and no convection boundary unless explicitly stated. The generator proposes the next short audit checkpoint; a separate rubric checks physical consistency. Do not carry out an experiment or use real data.\n\nCurrent checkpoint: write the energy balance showing the heat flux is constant\nPossible next checkpoints:\nA: write Fourier's relation across layer 1\nB: write Fourier's relation across layer 2\nC: state the geometry, sign convention and no-source steady assumptions\nD: draw the series thermal-resistance path including Rc\nPropose the next checkpoint that most usefully audits the current step. Do not repeat the current checkpoint. Reply only ANSWER: <ID>.",
+      "messages": [
+        {
+          "role": "system",
+          "content": "You are a physics-audit mutator. Output exactly ANSWER: followed by one uppercase ID A-D. Never explain."
+        },
+        {
+          "role": "user",
+          "content": "You are evaluating a synthetic AI-physics reasoning benchmark. A planar two-layer wall has layer 1 thickness L1 and conductivity k1, layer 2 thickness L2 and conductivity k2, and a finite thermal contact resistance Rc at the interface. The outer faces are held at Th and Tc with Th>Tc; there is steady one-dimensional conduction, no internal heat generation, and no convection boundary unless explicitly stated. The generator proposes the next short audit checkpoint; a separate rubric checks physical consistency. Do not carry out an experiment or use real data.\n\nCurrent checkpoint: write the energy balance showing the heat flux is constant\nPossible next checkpoints:\nA: write Fourier's relation across layer 1\nB: write Fourier's relation across layer 2\nC: state the geometry, sign convention and no-source steady assumptions\nD: draw the series thermal-resistance path including Rc\nPropose the next checkpoint that most usefully audits the current step. Do not repeat the current checkpoint. Reply only ANSWER: <ID>."
+        }
+      ]
+    },
+    {
+      "source": 3,
+      "source_state": "p3",
+      "mapping": {
+        "A": 2,
+        "B": 1,
+        "C": 4,
+        "D": 5
+      },
+      "prompt": "You are evaluating a synthetic AI-physics reasoning benchmark. A planar two-layer wall has layer 1 thickness L1 and conductivity k1, layer 2 thickness L2 and conductivity k2, and a finite thermal contact resistance Rc at the interface. The outer faces are held at Th and Tc with Th>Tc; there is steady one-dimensional conduction, no internal heat generation, and no convection boundary unless explicitly stated. The generator proposes the next short audit checkpoint; a separate rubric checks physical consistency. Do not carry out an experiment or use real data.\n\nCurrent checkpoint: write Fourier's relation across layer 1\nPossible next checkpoints:\nA: write the energy balance showing the heat flux is constant\nB: draw the series thermal-resistance path including Rc\nC: write Fourier's relation across layer 2\nD: write the temperature jump relation at the contact resistance\nPropose the next checkpoint that most usefully audits the current step. Do not repeat the current checkpoint. Reply only ANSWER: <ID>.",
+      "messages": [
+        {
+          "role": "system",
+          "content": "You are a physics-audit mutator. Output exactly ANSWER: followed by one uppercase ID A-D. Never explain."
+        },
+        {
+          "role": "user",
+          "content": "You are evaluating a synthetic AI-physics reasoning benchmark. A planar two-layer wall has layer 1 thickness L1 and conductivity k1, layer 2 thickness L2 and conductivity k2, and a finite thermal contact resistance Rc at the interface. The outer faces are held at Th and Tc with Th>Tc; there is steady one-dimensional conduction, no internal heat generation, and no convection boundary unless explicitly stated. The generator proposes the next short audit checkpoint; a separate rubric checks physical consistency. Do not carry out an experiment or use real data.\n\nCurrent checkpoint: write Fourier's relation across layer 1\nPossible next checkpoints:\nA: write the energy balance showing the heat flux is constant\nB: draw the series thermal-resistance path including Rc\nC: write Fourier's relation across layer 2\nD: write the temperature jump relation at the contact resistance\nPropose the next checkpoint that most usefully audits the current step. Do not repeat the current checkpoint. Reply only ANSWER: <ID>."
+        }
+      ]
+    },
+    {
+      "source": 4,
+      "source_state": "p4",
+      "mapping": {
+        "A": 6,
+        "B": 2,
+        "C": 3,
+        "D": 5
+      },
+      "prompt": "You are evaluating a synthetic AI-physics reasoning benchmark. A planar two-layer wall has layer 1 thickness L1 and conductivity k1, layer 2 thickness L2 and conductivity k2, and a finite thermal contact resistance Rc at the interface. The outer faces are held at Th and Tc with Th>Tc; there is steady one-dimensional conduction, no internal heat generation, and no convection boundary unless explicitly stated. The generator proposes the next short audit checkpoint; a separate rubric checks physical consistency. Do not carry out an experiment or use real data.\n\nCurrent checkpoint: write Fourier's relation across layer 2\nPossible next checkpoints:\nA: apply the hot-face and cold-face boundary conditions\nB: write the energy balance showing the heat flux is constant\nC: write Fourier's relation across layer 1\nD: write the temperature jump relation at the contact resistance\nPropose the next checkpoint that most usefully audits the current step. Do not repeat the current checkpoint. Reply only ANSWER: <ID>.",
+      "messages": [
+        {
+          "role": "system",
+          "content": "You are a physics-audit mutator. Output exactly ANSWER: followed by one uppercase ID A-D. Never explain."
+        },
+        {
+          "role": "user",
+          "content": "You are evaluating a synthetic AI-physics reasoning benchmark. A planar two-layer wall has layer 1 thickness L1 and conductivity k1, layer 2 thickness L2 and conductivity k2, and a finite thermal contact resistance Rc at the interface. The outer faces are held at Th and Tc with Th>Tc; there is steady one-dimensional conduction, no internal heat generation, and no convection boundary unless explicitly stated. The generator proposes the next short audit checkpoint; a separate rubric checks physical consistency. Do not carry out an experiment or use real data.\n\nCurrent checkpoint: write Fourier's relation across layer 2\nPossible next checkpoints:\nA: apply the hot-face and cold-face boundary conditions\nB: write the energy balance showing the heat flux is constant\nC: write Fourier's relation across layer 1\nD: write the temperature jump relation at the contact resistance\nPropose the next checkpoint that most usefully audits the current step. Do not repeat the current checkpoint. Reply only ANSWER: <ID>."
+        }
+      ]
+    },
+    {
+      "source": 5,
+      "source_state": "p5",
+      "mapping": {
+        "A": 7,
+        "B": 6,
+        "C": 4,
+        "D": 3
+      },
+      "prompt": "You are evaluating a synthetic AI-physics reasoning benchmark. A planar two-layer wall has layer 1 thickness L1 and conductivity k1, layer 2 thickness L2 and conductivity k2, and a finite thermal contact resistance Rc at the interface. The outer faces are held at Th and Tc with Th>Tc; there is steady one-dimensional conduction, no internal heat generation, and no convection boundary unless explicitly stated. The generator proposes the next short audit checkpoint; a separate rubric checks physical consistency. Do not carry out an experiment or use real data.\n\nCurrent checkpoint: write the temperature jump relation at the contact resistance\nPossible next checkpoints:\nA: solve the signed heat flux in terms of both layer resistances and Rc\nB: apply the hot-face and cold-face boundary conditions\nC: write Fourier's relation across layer 2\nD: write Fourier's relation across layer 1\nPropose the next checkpoint that most usefully audits the current step. Do not repeat the current checkpoint. Reply only ANSWER: <ID>.",
+      "messages": [
+        {
+          "role": "system",
+          "content": "You are a physics-audit mutator. Output exactly ANSWER: followed by one uppercase ID A-D. Never explain."
+        },
+        {
+          "role": "user",
+          "content": "You are evaluating a synthetic AI-physics reasoning benchmark. A planar two-layer wall has layer 1 thickness L1 and conductivity k1, layer 2 thickness L2 and conductivity k2, and a finite thermal contact resistance Rc at the interface. The outer faces are held at Th and Tc with Th>Tc; there is steady one-dimensional conduction, no internal heat generation, and no convection boundary unless explicitly stated. The generator proposes the next short audit checkpoint; a separate rubric checks physical consistency. Do not carry out an experiment or use real data.\n\nCurrent checkpoint: write the temperature jump relation at the contact resistance\nPossible next checkpoints:\nA: solve the signed heat flux in terms of both layer resistances and Rc\nB: apply the hot-face and cold-face boundary conditions\nC: write Fourier's relation across layer 2\nD: write Fourier's relation across layer 1\nPropose the next checkpoint that most usefully audits the current step. Do not repeat the current checkpoint. Reply only ANSWER: <ID>."
+        }
+      ]
+    },
+    {
+      "source": 6,
+      "source_state": "p6",
+      "mapping": {
+        "A": 4,
+        "B": 5,
+        "C": 7,
+        "D": 8
+      },
+      "prompt": "You are evaluating a synthetic AI-physics reasoning benchmark. A planar two-layer wall has layer 1 thickness L1 and conductivity k1, layer 2 thickness L2 and conductivity k2, and a finite thermal contact resistance Rc at the interface. The outer faces are held at Th and Tc with Th>Tc; there is steady one-dimensional conduction, no internal heat generation, and no convection boundary unless explicitly stated. The generator proposes the next short audit checkpoint; a separate rubric checks physical consistency. Do not carry out an experiment or use real data.\n\nCurrent checkpoint: apply the hot-face and cold-face boundary conditions\nPossible next checkpoints:\nA: write Fourier's relation across layer 2\nB: write the temperature jump relation at the contact resistance\nC: solve the signed heat flux in terms of both layer resistances and Rc\nD: solve the interface temperature from the same flux\nPropose the next checkpoint that most usefully audits the current step. Do not repeat the current checkpoint. Reply only ANSWER: <ID>.",
+      "messages": [
+        {
+          "role": "system",
+          "content": "You are a physics-audit mutator. Output exactly ANSWER: followed by one uppercase ID A-D. Never explain."
+        },
+        {
+          "role": "user",
+          "content": "You are evaluating a synthetic AI-physics reasoning benchmark. A planar two-layer wall has layer 1 thickness L1 and conductivity k1, layer 2 thickness L2 and conductivity k2, and a finite thermal contact resistance Rc at the interface. The outer faces are held at Th and Tc with Th>Tc; there is steady one-dimensional conduction, no internal heat generation, and no convection boundary unless explicitly stated. The generator proposes the next short audit checkpoint; a separate rubric checks physical consistency. Do not carry out an experiment or use real data.\n\nCurrent checkpoint: apply the hot-face and cold-face boundary conditions\nPossible next checkpoints:\nA: write Fourier's relation across layer 2\nB: write the temperature jump relation at the contact resistance\nC: solve the signed heat flux in terms of both layer resistances and Rc\nD: solve the interface temperature from the same flux\nPropose the next checkpoint that most usefully audits the current step. Do not repeat the current checkpoint. Reply only ANSWER: <ID>."
+        }
+      ]
+    },
+    {
+      "source": 7,
+      "source_state": "p7",
+      "mapping": {
+        "A": 8,
+        "B": 5,
+        "C": 6,
+        "D": 9
+      },
+      "prompt": "You are evaluating a synthetic AI-physics reasoning benchmark. A planar two-layer wall has layer 1 thickness L1 and conductivity k1, layer 2 thickness L2 and conductivity k2, and a finite thermal contact resistance Rc at the interface. The outer faces are held at Th and Tc with Th>Tc; there is steady one-dimensional conduction, no internal heat generation, and no convection boundary unless explicitly stated. The generator proposes the next short audit checkpoint; a separate rubric checks physical consistency. Do not carry out an experiment or use real data.\n\nCurrent checkpoint: solve the signed heat flux in terms of both layer resistances and Rc\nPossible next checkpoints:\nA: solve the interface temperature from the same flux\nB: write the temperature jump relation at the contact resistance\nC: apply the hot-face and cold-face boundary conditions\nD: check units and dimensions of the total resistance and heat flux\nPropose the next checkpoint that most usefully audits the current step. Do not repeat the current checkpoint. Reply only ANSWER: <ID>.",
+      "messages": [
+        {
+          "role": "system",
+          "content": "You are a physics-audit mutator. Output exactly ANSWER: followed by one uppercase ID A-D. Never explain."
+        },
+        {
+          "role": "user",
+          "content": "You are evaluating a synthetic AI-physics reasoning benchmark. A planar two-layer wall has layer 1 thickness L1 and conductivity k1, layer 2 thickness L2 and conductivity k2, and a finite thermal contact resistance Rc at the interface. The outer faces are held at Th and Tc with Th>Tc; there is steady one-dimensional conduction, no internal heat generation, and no convection boundary unless explicitly stated. The generator proposes the next short audit checkpoint; a separate rubric checks physical consistency. Do not carry out an experiment or use real data.\n\nCurrent checkpoint: solve the signed heat flux in terms of both layer resistances and Rc\nPossible next checkpoints:\nA: solve the interface temperature from the same flux\nB: write the temperature jump relation at the contact resistance\nC: apply the hot-face and cold-face boundary conditions\nD: check units and dimensions of the total resistance and heat flux\nPropose the next checkpoint that most usefully audits the current step. Do not repeat the current checkpoint. Reply only ANSWER: <ID>."
+        }
+      ]
+    },
+    {
+      "source": 8,
+      "source_state": "p8",
+      "mapping": {
+        "A": 9,
+        "B": 10,
+        "C": 6,
+        "D": 7
+      },
+      "prompt": "You are evaluating a synthetic AI-physics reasoning benchmark. A planar two-layer wall has layer 1 thickness L1 and conductivity k1, layer 2 thickness L2 and conductivity k2, and a finite thermal contact resistance Rc at the interface. The outer faces are held at Th and Tc with Th>Tc; there is steady one-dimensional conduction, no internal heat generation, and no convection boundary unless explicitly stated. The generator proposes the next short audit checkpoint; a separate rubric checks physical consistency. Do not carry out an experiment or use real data.\n\nCurrent checkpoint: solve the interface temperature from the same flux\nPossible next checkpoints:\nA: check units and dimensions of the total resistance and heat flux\nB: check the limiting case Rc approaching zero\nC: apply the hot-face and cold-face boundary conditions\nD: solve the signed heat flux in terms of both layer resistances and Rc\nPropose the next checkpoint that most usefully audits the current step. Do not repeat the current checkpoint. Reply only ANSWER: <ID>.",
+      "messages": [
+        {
+          "role": "system",
+          "content": "You are a physics-audit mutator. Output exactly ANSWER: followed by one uppercase ID A-D. Never explain."
+        },
+        {
+          "role": "user",
+          "content": "You are evaluating a synthetic AI-physics reasoning benchmark. A planar two-layer wall has layer 1 thickness L1 and conductivity k1, layer 2 thickness L2 and conductivity k2, and a finite thermal contact resistance Rc at the interface. The outer faces are held at Th and Tc with Th>Tc; there is steady one-dimensional conduction, no internal heat generation, and no convection boundary unless explicitly stated. The generator proposes the next short audit checkpoint; a separate rubric checks physical consistency. Do not carry out an experiment or use real data.\n\nCurrent checkpoint: solve the interface temperature from the same flux\nPossible next checkpoints:\nA: check units and dimensions of the total resistance and heat flux\nB: check the limiting case Rc approaching zero\nC: apply the hot-face and cold-face boundary conditions\nD: solve the signed heat flux in terms of both layer resistances and Rc\nPropose the next checkpoint that most usefully audits the current step. Do not repeat the current checkpoint. Reply only ANSWER: <ID>."
+        }
+      ]
+    },
+    {
+      "source": 9,
+      "source_state": "p9",
+      "mapping": {
+        "A": 7,
+        "B": 11,
+        "C": 8,
+        "D": 10
+      },
+      "prompt": "You are evaluating a synthetic AI-physics reasoning benchmark. A planar two-layer wall has layer 1 thickness L1 and conductivity k1, layer 2 thickness L2 and conductivity k2, and a finite thermal contact resistance Rc at the interface. The outer faces are held at Th and Tc with Th>Tc; there is steady one-dimensional conduction, no internal heat generation, and no convection boundary unless explicitly stated. The generator proposes the next short audit checkpoint; a separate rubric checks physical consistency. Do not carry out an experiment or use real data.\n\nCurrent checkpoint: check units and dimensions of the total resistance and heat flux\nPossible next checkpoints:\nA: solve the signed heat flux in terms of both layer resistances and Rc\nB: flag a tempting error: forcing equal interface temperature or adding an unstated convection term\nC: solve the interface temperature from the same flux\nD: check the limiting case Rc approaching zero\nPropose the next checkpoint that most usefully audits the current step. Do not repeat the current checkpoint. Reply only ANSWER: <ID>.",
+      "messages": [
+        {
+          "role": "system",
+          "content": "You are a physics-audit mutator. Output exactly ANSWER: followed by one uppercase ID A-D. Never explain."
+        },
+        {
+          "role": "user",
+          "content": "You are evaluating a synthetic AI-physics reasoning benchmark. A planar two-layer wall has layer 1 thickness L1 and conductivity k1, layer 2 thickness L2 and conductivity k2, and a finite thermal contact resistance Rc at the interface. The outer faces are held at Th and Tc with Th>Tc; there is steady one-dimensional conduction, no internal heat generation, and no convection boundary unless explicitly stated. The generator proposes the next short audit checkpoint; a separate rubric checks physical consistency. Do not carry out an experiment or use real data.\n\nCurrent checkpoint: check units and dimensions of the total resistance and heat flux\nPossible next checkpoints:\nA: solve the signed heat flux in terms of both layer resistances and Rc\nB: flag a tempting error: forcing equal interface temperature or adding an unstated convection term\nC: solve the interface temperature from the same flux\nD: check the limiting case Rc approaching zero\nPropose the next checkpoint that most usefully audits the current step. Do not repeat the current checkpoint. Reply only ANSWER: <ID>."
+        }
+      ]
+    },
+    {
+      "source": 10,
+      "source_state": "p10",
+      "mapping": {
+        "A": 11,
+        "B": 8,
+        "C": 9,
+        "D": 0
+      },
+      "prompt": "You are evaluating a synthetic AI-physics reasoning benchmark. A planar two-layer wall has layer 1 thickness L1 and conductivity k1, layer 2 thickness L2 and conductivity k2, and a finite thermal contact resistance Rc at the interface. The outer faces are held at Th and Tc with Th>Tc; there is steady one-dimensional conduction, no internal heat generation, and no convection boundary unless explicitly stated. The generator proposes the next short audit checkpoint; a separate rubric checks physical consistency. Do not carry out an experiment or use real data.\n\nCurrent checkpoint: check the limiting case Rc approaching zero\nPossible next checkpoints:\nA: flag a tempting error: forcing equal interface temperature or adding an unstated convection term\nB: solve the interface temperature from the same flux\nC: check units and dimensions of the total resistance and heat flux\nD: state the geometry, sign convention and no-source steady assumptions\nPropose the next checkpoint that most usefully audits the current step. Do not repeat the current checkpoint. Reply only ANSWER: <ID>.",
+      "messages": [
+        {
+          "role": "system",
+          "content": "You are a physics-audit mutator. Output exactly ANSWER: followed by one uppercase ID A-D. Never explain."
+        },
+        {
+          "role": "user",
+          "content": "You are evaluating a synthetic AI-physics reasoning benchmark. A planar two-layer wall has layer 1 thickness L1 and conductivity k1, layer 2 thickness L2 and conductivity k2, and a finite thermal contact resistance Rc at the interface. The outer faces are held at Th and Tc with Th>Tc; there is steady one-dimensional conduction, no internal heat generation, and no convection boundary unless explicitly stated. The generator proposes the next short audit checkpoint; a separate rubric checks physical consistency. Do not carry out an experiment or use real data.\n\nCurrent checkpoint: check the limiting case Rc approaching zero\nPossible next checkpoints:\nA: flag a tempting error: forcing equal interface temperature or adding an unstated convection term\nB: solve the interface temperature from the same flux\nC: check units and dimensions of the total resistance and heat flux\nD: state the geometry, sign convention and no-source steady assumptions\nPropose the next checkpoint that most usefully audits the current step. Do not repeat the current checkpoint. Reply only ANSWER: <ID>."
+        }
+      ]
+    },
+    {
+      "source": 11,
+      "source_state": "p11",
+      "mapping": {
+        "A": 10,
+        "B": 9,
+        "C": 0,
+        "D": 1
+      },
+      "prompt": "You are evaluating a synthetic AI-physics reasoning benchmark. A planar two-layer wall has layer 1 thickness L1 and conductivity k1, layer 2 thickness L2 and conductivity k2, and a finite thermal contact resistance Rc at the interface. The outer faces are held at Th and Tc with Th>Tc; there is steady one-dimensional conduction, no internal heat generation, and no convection boundary unless explicitly stated. The generator proposes the next short audit checkpoint; a separate rubric checks physical consistency. Do not carry out an experiment or use real data.\n\nCurrent checkpoint: flag a tempting error: forcing equal interface temperature or adding an unstated convection term\nPossible next checkpoints:\nA: check the limiting case Rc approaching zero\nB: check units and dimensions of the total resistance and heat flux\nC: state the geometry, sign convention and no-source steady assumptions\nD: draw the series thermal-resistance path including Rc\nPropose the next checkpoint that most usefully audits the current step. Do not repeat the current checkpoint. Reply only ANSWER: <ID>.",
+      "messages": [
+        {
+          "role": "system",
+          "content": "You are a physics-audit mutator. Output exactly ANSWER: followed by one uppercase ID A-D. Never explain."
+        },
+        {
+          "role": "user",
+          "content": "You are evaluating a synthetic AI-physics reasoning benchmark. A planar two-layer wall has layer 1 thickness L1 and conductivity k1, layer 2 thickness L2 and conductivity k2, and a finite thermal contact resistance Rc at the interface. The outer faces are held at Th and Tc with Th>Tc; there is steady one-dimensional conduction, no internal heat generation, and no convection boundary unless explicitly stated. The generator proposes the next short audit checkpoint; a separate rubric checks physical consistency. Do not carry out an experiment or use real data.\n\nCurrent checkpoint: flag a tempting error: forcing equal interface temperature or adding an unstated convection term\nPossible next checkpoints:\nA: check the limiting case Rc approaching zero\nB: check units and dimensions of the total resistance and heat flux\nC: state the geometry, sign convention and no-source steady assumptions\nD: draw the series thermal-resistance path including Rc\nPropose the next checkpoint that most usefully audits the current step. Do not repeat the current checkpoint. Reply only ANSWER: <ID>."
+        }
+      ]
+    }
+  ],
+  "candidate_policy": "four local audit neighbors on a fixed cyclic support; current source excluded",
+  "support_width": 2,
+  "endpoint": "chat",
+  "temperature": 1.0,
+  "top_p": 1.0,
+  "top_k": -1,
+  "repetition_penalty": 1.0,
+  "enable_thinking": false,
+  "max_tokens": 32,
+  "stop": [],
+  "parser": "exact ANSWER marker over A-D",
+  "reward_components": {
+    "risk_urgency_scale": 1.0,
+    "valid_format_bonus": 1.0,
+    "invalid_total_reward": 0.0,
+    "semantic_alignment_field": "reward"
+  },
+  "reward_status": "physics-audit priority proxy; not measured human feedback",
+  "sha256": "0c65c26e06c2f9d7fb0c934ee89a8fa782dee6dc2e6b166f77e28695a23597c3",
+  "formal_status": "formal_candidate_gate0",
+  "preexperiment_exclusion": "No preexperiment raw outputs/counts/logits imported."
+}
